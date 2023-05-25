@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Rectangle Area</title>
+		<style>
+			body {
+				min-height: 100vh;
+				width: 100vw;
+				display: grid;
+				place-items: center;
+				overflow: hidden;
+			}
+			.content-wrapper {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				gap: 1rem;
+			}
+			button {
+				background: #2563eb;
+				border: 0.1rem solid #dbeafe;
+				border-color: #dbeafe white;
+				border-radius: 0.5rem;
+				padding: 0.5rem 1rem;
+				outline: 0;
+				color: white;
+			}
+			button:active {
+				border: 0.1rem solid #dbeafe;
+				border-radius: 0.5rem;
+				outline: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content-wrapper">
+			<div id="result">Click to Calculate Area</div>
+			<button id="calculate-area">Calculate</button>
+		</div>
+
+		<script>
+			let calculateArea = document.getElementById("calculate-area");
+			let resultElement = document.getElementById("result");
+
+			function areaOfRectangle(length, width) {
+				let area = length * width;
+
+				if (isNaN(length) || isNaN(width) || length <= 0 || width <= 0) {
+					resultElement.innerHTML = `<span style="background-color: #fecaca; padding: 10px; font-weight: bold; color: #dc2626; border-radius: 0.5rem; padding-left: 15px; padding-right: 15px">Enter correct values!</span>`;
+				} else {
+					resultElement.innerHTML = `<span style="background-color: #ecfccb; padding: 10px; font-weight: bold; color: #65a30d; padding-left: 15px; padding-right: 15px">The area of rectangle is ${area}</span> <br><br> Length : ${length} <br> Width: ${width} <br> Area : ${length} * ${width} <br> Area : ${area}`;
+				}
+			}
+
+			calculateArea.addEventListener("click", function () {
+				let lengthOfRect = +prompt("Enter length");
+				let widthOfRect = +prompt("Enter width");
+				areaOfRectangle(lengthOfRect, widthOfRect);
+			});
+		</script>
+	</body>
+</html>
